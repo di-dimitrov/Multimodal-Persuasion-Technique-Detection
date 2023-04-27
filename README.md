@@ -1,5 +1,4 @@
 # Multimodal-Propaganda-Detection
-# Data for [SemEval-2021 Task 6: Detection of Persuasive Techniques in Texts and Images](https://arxiv.org/abs/2105.09284)
 
 The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: https://propaganda.math.unipd.it/neurips2023/
 
@@ -16,7 +15,6 @@ __Table of contents:__
   - [Citation](#citation)
 
 ## List of Versions
-* __v1.6.3 [2021/02/15]__ - Gold labels for test data for subtasks 1, 2 and 3 are released
 * __v1.2 [XXXX/XX/XX]__ - Gold labels for dev data for tasks 1 and 2 released.
 * __v1.1 [XXXX/XX/XX]__ - Development data for tasks 1 and 2 released.
 * __v1.0 [XXXX/XX/XX]__ - Training data for tasks 1 and 2 released.
