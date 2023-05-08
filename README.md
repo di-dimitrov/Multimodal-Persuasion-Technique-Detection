@@ -1,4 +1,4 @@
-# Multimodal-Propaganda-Detection
+# Multimodal-Persuasive-Technique-Detection
 
 The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: https://propaganda.math.unipd.it/neurips2023/
 
