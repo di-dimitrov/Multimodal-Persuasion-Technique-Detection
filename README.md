@@ -1,6 +1,6 @@
 # Multimodal-Persuasive-Technique-Detection
 
-The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: https://propaganda.math.unipd.it/neurips2023/
+The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: https://propaganda.math.unipd.it/neurips2023competition/
 
 __Table of contents:__
 
@@ -88,19 +88,20 @@ See instructions on the website about how to register and make a submission.
 
 ## Format checkers
 
-The format checkers for the subtasks 1 and 2 are located in the [format_checker](format_checker) module of the project. 
+The format checkers for tasks 1 and 2 are located in the [format_checker](format_checker) module of the project. 
 Each format checker verifies that your generated results file complies with the expected format. 
 The format checker for subtask 2 is included in the scorer. 
 
 Before running the format checker please install all prerequisites through,
 > pip install -r requirements.txt
 
-To launch it, please run the following command:
+To launch it, run the following command:
 
 ```python
 python3 format_checker/task1_3.py --pred_files_path=<path_to_your_results_files> --classes_file_path=<path_to_techniques_categories_for_task>
 ```
 Note that the checker can not verify whether the prediction file you submit contain all lines, because it does not have access to the corresponding gold file.
+
 
 ## Scorer and Official Evaluation Metrics
 

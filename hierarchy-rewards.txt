@@ -1,0 +1,200 @@
+{
+    "Appeal to authority": {
+        "path-to-root": [   
+            "Appeal to authority", 
+            "Justification", 
+            "ethos-appeal-to-authority", 
+            "persuasion_technique" 
+        ],
+        "nodes-reward": [1.0, 0.4, 0.2, 0.1]
+    },
+    "Appeal to fear/prejudice": {
+        "path-to-root": [ 
+            "Appeal to fear/prejudice",
+            "Justification",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.4, 0.25, 0.1]
+    },
+    "Black-and-white Fallacy/Dictatorship": {
+        "path-to-root": [
+            "Black-and-white Fallacy/Dictatorship",
+            "Simplification",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.6, 0.3, 0.1]
+    },
+    "Causal Oversimplification": {
+        "path-to-root": [
+            "Causal Oversimplification",
+            "Simplification",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.6, 0.3, 0.1]
+    },
+    "Doubt": {
+        "path-to-root": [
+            "Doubt",
+            "Attack-on-reputation",
+            "ethos-appeal-to-authority",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.4, 0.2, 0.1]
+    },
+    "Exaggeration/Minimisation": {
+        "path-to-root": [
+            "Exaggeration/Minimisation",
+            "Manipulative Wording",
+            "persuasion_technique"
+        ], 
+        "nodes-reward": [1.0, 0.35, 0.1]
+    },
+    "Flag-waving": {
+        "path-to-root": [
+            "Flag-waving",
+            "Justification",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ], 
+        "nodes-reward": [1.0, 0.30, 0.30, 0.1]
+    },
+    "Glittering generalities (Virtue)": {
+        "path-to-root": [        
+            "Glittering generalities (Virtue)",
+            "Attack-on-reputation",
+            "ethos-appeal-to-authority",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.30, 0.30, 0.1]
+    },
+    "Loaded Language": {
+        "path-to-root": [
+            "Loaded Language",
+            "Manipulative-Wording",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.35, 0.30, 0.1]
+    },
+    "Misrepresentation of Someone's Position (Straw Man)": {
+        "path-to-root": [
+            "Misrepresentation of Someone's Position (Straw Man)", 
+            "Distraction",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.45, 0.21, 0.1]
+    },
+    "Name calling/Labeling": {
+        "path-to-root": [
+            "Name calling/Labeling",
+            "Attack-on-reputation",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.30, 0.30, 0.1]
+    },
+    "Obfuscation, Intention  al vagueness, Confusion": {
+        "path-to-root": [
+            "Obfuscation, Intention  al vagueness, Confusion",
+            "Manipulative-Wording",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.40, 0.30, 0.1]
+    },
+    "Presenting Irrelevant Data (Red Herring)": {
+        "path-to-root": [
+            "Presenting Irrelevant Data (Red Herring)",
+            "Distraction",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.45, 0.30, 0.1]
+    },
+    "Reductio ad hitlerum": {
+        "path-to-root": [
+            "Reductio ad hitlerum",
+            "Attack-on-reputation",
+            "ethos-appeal-to-authority",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.4, 0.2, 0.1]
+    },
+    "Repetition": {
+        "path-to-root": [
+            "Repetition",
+            "Manipulative-Wording",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.4, 0.3, 0.1]
+    },
+    "Slogans": {
+        "path-to-root": [
+            "Slogans",
+            "Call",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.45, 0.3, 0.1]
+    },
+    "Smears": {
+        "path-to-root": [ 
+            "Smears",
+            "Attack-on-reputation",
+            "ethos-appeal-to-authority",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.4, 0.2, 0.1]
+    },
+    "Thought-terminating cliché": {
+        "path-to-root": [ 
+            "Thought-terminating cliché",
+            "Call",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.45, 0.3, 0.1]
+    },
+    "Whataboutism": {
+        "path-to-root": [
+            "Whataboutism",
+            "Distraction",
+            "Attack-on-reputation",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.45, 0.45, 0.3, 0.1]
+    },
+    "Bandwagon": {
+        "path-to-root": [
+            "Bandwagon",
+            "Justification",
+            "logos-appeal-to-logic",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.3, 0.3, 0.1]
+    },
+    "Transfer": {
+        "path-to-root": [
+            "Transfer",
+            "Manipulative-Wording",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.35, 0.3, 0.1]
+    },
+    "Appeal to (Strong) Emotions": {
+        "path-to-root": [
+            "Appeal to (Strong) Emotions",
+            "Manipulative-Wording",
+            "pathos-appeal-to-emotions",
+            "persuasion_technique"
+        ],
+        "nodes-reward": [1.0, 0.35, 0.3, 0.1]
+    }
+}
