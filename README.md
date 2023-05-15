@@ -80,8 +80,8 @@ An object of the JSON has the following format:
 
 ### Prediction Files Format
 
-A prediction file, for example for the development set, must be one single JSON file for all memes. The entry for each meme must include the fields "id" and "labels". As an example, the input files described above would be also valid prediction files.  
-In the case of task 2, each entry of the field labels must include the fields "start", "end", "technique". We provide format checkers to automatically check the format of the submissions (see below). 
+A prediction file, for example for the development set, must be one single JSON file for all memes. The entry for each meme must include the fields "id" and "labels". As an example, the input files described above would be also valid prediction files. 
+We provide format checkers to automatically check the format of the submissions (see below). 
 
 If you want to check the performance of your model on the development and test (when available) sets, upload your predictions' file to the website of the shared task: https://propaganda.math.unipd.it/neurips2023/. 
 See instructions on the website about how to register and make a submission. 
@@ -112,23 +112,48 @@ You can install all prerequisites through,
 > pip install -r requirements.txt
 
 ### Task 1:
-The **official evaluation metric** for the task is **macro-F1**. However, the scorer also reports macro-F1. 
+The **official evaluation metric** for the task is **macro-F1**. However, the scorer also reports micro-F1. 
 
 To launch it, please run the following command:
 ```python
-python3 scorer/task1_3.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> --classes_file_path=<path_to_techniques_categories_for_task>
+python3 scorer/task1.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> --classes_file_path=<path_to_techniques_categories_for_task>
 ```
 
 Note: You can set a flag ```-d```, to print out more detailed scores.
 
 ### Task 2:
-The **official evaluation metric** for the task is **macro-F1**. However, the scorer also reports macro-F1. 
+The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
+The leaf nodes in the hierarchy are the 23 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
+The modified micro_F1 is computed as follows: 
+$$
+Prec=\frac{tpw}{tp+fp}
+$$
+$$
+Rec=\frac{tpw}{tp+fn}
+$$
+$$
+micro\_F1=2\frac{Prec\cdot Rec}{Prec+Rec},
+$$
+where the standard definitions of tp (true positive), fp (false positive), fn (false negative) are modified as follows:
+  - tp=1 if 
+    - the prediction is a leaf-node in the hierarchy (a technique, not a supercategory) and it is correct or 
+    - the prediction is an ancestor of the gold label in the hierarchy;
+  - tpw is the partial reward for predicting an ancestor of the technique
+  - fp = 1 if no gold label is a descendant of the predicted label
+  - fn = 1 if a gold labels or its ancestors has not matched any predicted label
+
+To ensure predictions get the highest reward, they are matched by depth in thehierarchy - first the leafs, then their parents etc...
+The function avoids the same prediction label matching more than one gold label 
+
 
 To launch it, please run the following command:
 ```python
-python3 scorer/task1_3.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> --classes_file_path=<path_to_techniques_categories_for_task>
+python3 scorer/task2.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> -h=<path_to_the_hierarchy>
 ```
-
+The set of all output labels, thus the techniques and all internal labels, are defined in `hierarchy-rewards.txt`, but they can be obtained with the previous command by adding a -t flag (notice that in this case --gold_file_path and --pred_file_path need not point to existing files):
+```python
+python3 scorer/task2.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> -h=<path_to_the_hierarchy> -t
+```
 
 
 ## Baselines
