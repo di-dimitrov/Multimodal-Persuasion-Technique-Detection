@@ -125,15 +125,13 @@ Note: You can set a flag ```-d```, to print out more detailed scores.
 The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
 The leaf nodes in the hierarchy are the 23 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
 The modified micro_F1 is computed as follows: 
-$$
-Prec=\frac{tpw}{tp+fp}
-$$
-$$
-Rec=\frac{tpw}{tp+fn}
-$$
-$$
-micro\_F1=2\frac{Prec\cdot Rec}{Prec+Rec},
-$$
+
+$$ Prec=\frac{tpw}{tp+fp} $$
+
+$$ Rec=\frac{tpw}{tp+fn} $$
+
+$$ microF1=2\frac{Prec\cdot Rec}{Prec+Rec}, $$
+
 where the standard definitions of tp (true positive), fp (false positive), fn (false negative) are modified as follows:
   - tp=1 if 
     - the prediction is a leaf-node in the hierarchy (a technique, not a supercategory) and it is correct or 
