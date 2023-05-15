@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "image": "1_image_batch_2.png",
+    "edited_text": "It took many brave men and souls to save a country.\nGod bless them all!\n\nSadly it only takes one idiot to destroy a country!",
+    "text": "It took many brave\nmen and souls to\nsave a country.\nGod bless them all!\nSadly it only takes\none idiot to destroy\na country!\n",
+    "label": propandistic
+  },
+  {
+    "id": "2",
+    "image": "2_image_batch_2.png",
+    "edited_text": "How to vaccinate Cattle\n\nHow to vaccinate, ahem test, the Herd",
+    "text": "How to vaccinate Cattle\nHow to vaccinate,\nahem test, the Herd\n",
+    "label": propandistic
+  },
+  {
+    "id": "3",
+    "image": "3_image_batch_2.png",
+    "edited_text": "",
+    "text": "The insert of a covid test. What and why\nare people still testing?\nNovel coronavin\n(COVID-19)\nAtratian mrment\nDert eh\nInformation for Clinicians: Frequently Asked\n\"it should be noted that PCR tests\ncannot distinquish between \"live\"\nvirus and non-infective RNA.\"\nThis means the test cannot\ndisguishing covid from a cold or\nmeasles ar ebola\nNotable human diseases caused\nby RNA viruses include Ebola\nvirus disease, SARS, COVID-19,\nrabies, common cold, influenza,\nhepatitis C, hepatitis E, West Nile\nfever, polio and measles.\n",
+    "label": not-propagandistic
+  },
+  {
+    "id": "4",
+    "image": "4_image_batch_2.png",
+    "edited_text": "",
+    "text": "THEY RUINED LIVES\nINFECTION FATALITY RATIO\nIF INFECTED\n.00003%\n0-19 YEARS\n.0002%\n20-49 YEARS\n50-69 YEARS\n.005%\n70+ YEARS\n.054%\nCDC.GOV\nFOX\nNEWS\nohannel\nDUPLE AND DETER THEM FROM CRITIC\nFOR THIS...\nOMELAND SECURITY SECRETARY\n",
+    "label": not-propagandistic
+  }
+]
