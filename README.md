@@ -146,7 +146,7 @@ To ensure predictions get the highest reward, they are matched by depth in thehi
 The function avoids the same prediction label matching more than one gold label 
 
 
-To launch it, please run the following command:
+To launch the scorer run the following command:
 ```python
 python3 scorer/task2.py --gold_file_path=<path_to_gold_labels> --pred_file_path=<path_to_your_results_file> -h=<path_to_the_hierarchy>
 ```
@@ -168,17 +168,17 @@ If you submit the predictions of the baseline on the development set to the shar
 
 ### Task 2
 
-The baseline for task 2 simply creates random spans and technique names for the development set. No learning is performed. 
+TODO 
+
 Run as
 ```
 cd baselines; python3 baseline_task2.py
 ```
-If you submit the predictions of the baseline on the development set to the shared task website, you would get a F1 score of 0.00699.
-If you score the baseline on the training set (uncomment lines 5-6 in baseline_task2.py), you should get a F1 score of 0.038112
+If you submit the predictions of the baseline on the development set to the shared task website, you would get a F1 score of XXX. 
 ```
-python3 task-2-semeval21_scorer.py -s ../../baselines/baseline-output-task2-train.txt -r ../../data/training_set_task2.txt -p ../../techniques_list_task1-2.txt 
+python3 scorer/task2.py -s baselines/baseline-output-task2-train.txt -r data/training_set_task2.txt -w hierarchy-rewards.txt 
 ...
-F1=0.00699
+F1=XXX
 ...
 ```
 
