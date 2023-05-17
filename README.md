@@ -38,7 +38,7 @@ An object of the JSON has the following format:
 ```
 {
   id -> identifier of the example,
-  label -> propaganda or non-propaganda,
+  label -> ‘propandistic’ or ‘not-propagandistic’,
   text -> textual content of meme,
   image -> name of the image file containing the meme
 }
@@ -47,7 +47,7 @@ An object of the JSON has the following format:
 ```
 {
         "id": "1234",
-        "label": propaganda,
+        "label": ‘propandistic’,
         "text": "I HATE TRUMP\n\nMOST TERRORIST DO",
         "image" : "prop_meme_1234.png"
 }
