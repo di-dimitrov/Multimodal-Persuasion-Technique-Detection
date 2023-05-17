@@ -22,7 +22,7 @@ __Table of contents:__
 
 ## Task Description
 
-**Task 1:** Given a meme, identify whether it contains a persuasion technique. This is a multilabel classification problem.
+**Task 1:** Given a meme, identify whether it contains a persuasion technique or no techniques are used in the meme. This is a binary classification problem.
 
 **Task 2:** Given a meme, identify which persuasion techniques, organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is selected, only partial reward wil be given. This is a hierarchical multilingual multilabel classification problem.
 
@@ -123,7 +123,7 @@ Note: You can set a flag ```-d```, to print out more detailed scores.
 
 ### Task 2:
 The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
-The leaf nodes in the hierarchy are the 23 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
+The leaf nodes in the hierarchy are the 22 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
 The modified micro_F1 is computed as follows: 
 
 $$ Prec=\frac{tpw}{tp+fp} $$
