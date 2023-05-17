@@ -187,4 +187,4 @@ The dataset is available on the [competition website](https://propaganda.math.un
 You'll have to sign an online agreement before downloading and using our data, which is strictly for research purposes only and cannot be redistributed or used for malicious purposes such as but not limited to manipulation, targeted harassment, hate speech, deception, and discrimination.
 
 ## Contact
-You can contact us as <TODO: create email and Slack channel>
+You can contact us at <TODO: create email and Slack channel>
