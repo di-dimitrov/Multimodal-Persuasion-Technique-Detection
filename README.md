@@ -124,7 +124,7 @@ Note: You can set a flag ```-d```, to print out more detailed scores.
 
 ### Task 2:
 The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
-The leaf nodes in the hierarchy are the 22 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
+The leaf nodes in the hierarchy are the [22 techniques](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html), while internal nodes are grouping of them, according to their characteristics. For instance, "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism", since they all have the goal of distracting from the main thesis of the opponent. If an output label is Distraction while the gold label is "Red Herring", a partial reward is given. The supercategories are described [here](https://knowledge4policy.ec.europa.eu/sites/default/files/JRC132862_technical_report_annotation_guidelines_final_with_affiliations_1.pdf).    
 The modified micro_F1 is computed as follows: 
 
 $$ Prec=\frac{tpw}{tp+fp} $$
