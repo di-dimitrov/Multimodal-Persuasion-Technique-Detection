@@ -24,7 +24,8 @@ __Table of contents:__
 
 **Task 1:** Given a meme, identify whether it contains a persuasion technique or no techniques are used in the meme. This is a binary classification problem.
 
-**Task 2:** Given a meme, identify which persuasion techniques, organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is selected, only partial reward wil be given. This is a hierarchical multilingual multilabel classification problem.
+**Task 2:** Given a meme, identify which persuasion techniques organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is predicted, only partial reward is given (see evaluation metrics for details). This is a hierarchical multilingual multilabel classification problem. 
+The list of techniques, together with definitions and examples, are available [on the competition website](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html). The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
 
 ## Data Format
 
@@ -182,4 +183,8 @@ F1=XXX
 
 ## Licensing
 
-These datasets are free for general research use.
+The dataset is available on the [competition website](https://propaganda.math.unipd.it/neurips2023competition/). 
+You'll have to sign an online agreement before downloading and using our data, which is strictly for research purposes only and cannot be redistributed or used for malicious purposes such as but not limited to manipulation, targeted harassment, hate speech, deception, and discrimination.
+
+## Contact
+You can contact us as <TODO: create email and Slack channel>
