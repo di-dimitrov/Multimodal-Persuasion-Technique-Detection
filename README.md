@@ -22,9 +22,10 @@ __Table of contents:__
 
 ## Task Description
 
-**Task 1:** Given a meme, identify whether it contains a persuasion technique. This is a multilabel classification problem.
+**Task 1:** Given a meme, identify whether it contains a persuasion technique or no techniques are used in the meme. This is a binary classification problem.
 
-**Task 2:** Given a meme, identify which persuasion techniques, organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is selected, only partial reward wil be given. This is a hierarchical multilingual multilabel classification problem.
+**Task 2:** Given a meme, identify which persuasion techniques organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is predicted, only partial reward is given (see evaluation metrics for details). This is a hierarchical multilingual multilabel classification problem. 
+The list of techniques, together with definitions and examples, are available [on the competition website](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html). The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
 
 ## Data Format
 
@@ -37,7 +38,7 @@ An object of the JSON has the following format:
 ```
 {
   id -> identifier of the example,
-  label -> propaganda or non-propaganda,
+  label -> ‘propandistic’ or ‘not-propagandistic’,
   text -> textual content of meme,
   image -> name of the image file containing the meme
 }
@@ -46,7 +47,7 @@ An object of the JSON has the following format:
 ```
 {
         "id": "1234",
-        "label": propaganda,
+        "label": ‘propandistic’,
         "text": "I HATE TRUMP\n\nMOST TERRORIST DO",
         "image" : "prop_meme_1234.png"
 }
@@ -123,7 +124,7 @@ Note: You can set a flag ```-d```, to print out more detailed scores.
 
 ### Task 2:
 The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
-The leaf nodes in the hierarchy are the 23 techniques, while internal nodes are grouping of them, according to their characteristics. For instance "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism". If an output label is Distraction while the gold label i "Red Herring", a partial reward is given.   
+The leaf nodes in the hierarchy are the [22 techniques](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html), while internal nodes are grouping of them, according to their characteristics. For instance, "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism", since they all have the goal of distracting from the main thesis of the opponent. If an output label is Distraction while the gold label is "Red Herring", a partial reward is given. The supercategories are described [here](https://knowledge4policy.ec.europa.eu/sites/default/files/JRC132862_technical_report_annotation_guidelines_final_with_affiliations_1.pdf).    
 The modified micro_F1 is computed as follows: 
 
 $$ Prec=\frac{tpw}{tp+fp} $$
@@ -182,4 +183,8 @@ F1=XXX
 
 ## Licensing
 
-These datasets are free for general research use.
+The dataset is available on the [competition website](https://propaganda.math.unipd.it/neurips2023competition/). 
+You'll have to sign an online agreement before downloading and using our data, which is strictly for research purposes only and cannot be redistributed or used for malicious purposes such as but not limited to manipulation, targeted harassment, hate speech, deception, and discrimination.
+
+## Contact
+You can contact us at <TODO: create email and Slack channel>
