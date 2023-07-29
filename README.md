@@ -1,6 +1,6 @@
 # Multimodal-Persuasive-Technique-Detection
 
-The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: <website_placeholder>
+The website of the shared task, with the submission instructions, updates on the competition and the live leaderboard can be found here: [https://propaganda.math.unipd.it/semeval2024task4/](https://propaganda.math.unipd.it/semeval2024task4/)
 
 __Table of contents:__
 
@@ -15,9 +15,7 @@ __Table of contents:__
   - [Citation](#citation)
 
 ## List of Versions
-* __v1.2 [XXXX/XX/XX]__ - Gold labels for dev data for tasks 1 and 2 released.
-* __v1.1 [XXXX/XX/XX]__ - Development data for tasks 1 and 2 released.
-* __v1.0 [XXXX/XX/XX]__ - Training data for tasks 1 and 2 released.
+* __v0.1 [XXXX/XX/XX]__ - Trial data released.
 
 
 ## Task Description
@@ -25,7 +23,7 @@ __Table of contents:__
 **Task 1:** Given a meme, identify whether it contains a persuasion technique or no techniques are used in the meme. This is a binary classification problem.
 
 **Task 2:** Given a meme, identify which persuasion techniques organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is predicted, only partial reward is given (see evaluation metrics for details). This is a hierarchical multilingual multilabel classification problem. 
-The list of techniques, together with definitions and examples, are available [on the competition website](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html). The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
+The list of techniques, together with definitions and examples, are available [on the competition website](https://propaganda.math.unipd.it/semeval2024task4/definitions22.html). The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
 
 ## Data Format
 
