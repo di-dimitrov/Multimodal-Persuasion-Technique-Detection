@@ -20,18 +20,63 @@ __Table of contents:__
 
 ## Task Description
 
-**Task 1:** Given a meme, identify whether it contains a persuasion technique or no techniques are used in the meme. This is a binary classification problem.
+**Subtask 1:** Given only the “textual content” of a meme, identify which of the 20 persuasion techniques, organized in a hierarchy, it uses. If the ancestor node of a technique is selected, only a partial reward is given. This is a hierarchical multilabel classification problem. You can find a partial view of the hierarchy below. Full details on it will be provided at the time we release the training set. If you need additional annotated data to solve this task, you can check the [PTC corpus](https://propaganda.math.unipd.it/ptc/)" as well as the [SemEval 2023 task 3 data](https://propaganda.math.unipd.it/semeval2023task3/).
 
-**Task 2:** Given a meme, identify which persuasion techniques organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is predicted, only partial reward is given (see evaluation metrics for details). This is a hierarchical multilingual multilabel classification problem. 
-The list of techniques, together with definitions and examples, are available [on the competition website](https://propaganda.math.unipd.it/semeval2024task4/definitions22.html). The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
+**Subtask 2a:** Given a meme, identify which of the [22 persuasion techniques](https://propaganda.math.unipd.it/semeval2024task4/definitions22.html), organized in a hierarchy, are used both in the textual and in the visual content of the meme (multimodal task). If the ancestor node of a technique is selected, only partial reward will be given. This is a hierarchical multilabel classification problem. The list of ancestors of each technique is described in the file [hierarchy-rewards.txt](hierarchy-rewards.txt). 
+
+**Subtask 2b:** Given a meme (both the textual and the visual content), identify whether it contains a persuasion technique (at least one of the [22 persuasion techniques](https://propaganda.math.unipd.it/semeval2024task4/definitions22.html) we considered in this task), or no technique. This is a binary classification problem. Note that this is a simplified version of subtask 2a in which the hierarchy is cut at the first two children of the root node. 
 
 ## Data Format
 
 The datasets are JSON files. The text encoding is UTF-8.
 
 ### Input data format
+#### Subtask 1:
+An object of the JSON has the following format:
+```
+{
+  id -> identifier of the example,
+  text -> textual content of meme
+  labels -> list of propaganda techniques appearing in the meme (based on hierarchy)
+}
+```
+##### Example
+```
+{
+        "id": "125",
+        "labels": [
+            "Reductio ad hitlerum",
+            "Smears",
+            "Loaded Language",
+            "Name calling/Labeling"
+        ],
+        "text": "I HATE TRUMP\n\nMOST TERRORIST DO",
+}
+```
+#### Subtask 2a:
+An object of the JSON has the following format:
+```
+{
+  id -> identifier of the example,
+  text -> textual content of meme
+  image -> name of the image file containing the meme
+  labels -> list of propaganda techniques appearing in the meme (based on hierarchy)
+}
+```
+##### Example
+```
+{
+        "id": "125",
+        "labels": [
+            "Loaded Language",
+            "Name calling/Labeling"
+        ],
+        "text": "I HATE TRUMP\n\nMOST TERRORIST DO",
+        "image": "125_image.png"
+}
+```
 
-#### Task 1:
+#### Subtask 2b:
 An object of the JSON has the following format:
 ```
 {
@@ -50,30 +95,6 @@ An object of the JSON has the following format:
         "image" : "prop_meme_1234.png"
 }
 ```
-#### Task 2:
-An object of the JSON has the following format:
-```
-{
-  id -> identifier of the example,
-  text -> textual content of meme
-  image -> name of the image file containing the meme
-  labels -> list of propaganda techniques appearing in the meme (based on hierarchy
-}
-```
-##### Example
-```
-{
-        "id": "125",
-        "labels": [
-            "Reductio ad hitlerum",
-            "Smears",
-            "Loaded Language",
-            "Name calling/Labeling"
-        ],
-        "text": "I HATE TRUMP\n\nMOST TERRORIST DO",
-        "image": "125_image.png"
-}
-```
 <!--![125_image](https://user-images.githubusercontent.com/33981376/99262849-1c62ba80-2827-11eb-99f2-ba52aa26236a.png)-->
 <img src="https://user-images.githubusercontent.com/33981376/99262849-1c62ba80-2827-11eb-99f2-ba52aa26236a.png" width="350" height="350">
 
@@ -82,14 +103,13 @@ An object of the JSON has the following format:
 A prediction file, for example for the development set, must be one single JSON file for all memes. The entry for each meme must include the fields "id" and "labels". As an example, the input files described above would be also valid prediction files. 
 We provide format checkers to automatically check the format of the submissions (see below). 
 
-If you want to check the performance of your model on the development and test (when available) sets, upload your predictions' file to the website of the shared task: https://propaganda.math.unipd.it/neurips2023/. 
+If you want to check the performance of your model on the development and test (when available) sets, upload your predictions' file to the website of the shared task: https://propaganda.math.unipd.it/semeval2024task4/. 
 See instructions on the website about how to register and make a submission. 
 
 ## Format checkers
 
-The format checkers for tasks 1 and 2 are located in the [format_checker](format_checker) module of the project. 
+The format checkers for all subtasks are located in the [format_checker](format_checker) module of the project. 
 Each format checker verifies that your generated results file complies with the expected format. 
-The format checker for subtask 2 is included in the scorer. 
 
 Before running the format checker please install all prerequisites through,
 > pip install -r requirements.txt
@@ -110,7 +130,7 @@ The scorer will report official evaluation metric and other metrics of a predict
 You can install all prerequisites through,
 > pip install -r requirements.txt
 
-### Task 1:
+### Subtask 1:
 The **official evaluation metric** for the task is **macro-F1**. However, the scorer also reports micro-F1. 
 
 To launch it, please run the following command:
@@ -120,9 +140,9 @@ python3 scorer/task1.py --gold_file_path=<path_to_gold_labels> --pred_file_path=
 
 Note: You can set a flag ```-d```, to print out more detailed scores.
 
-### Task 2:
+### Subtask 2a:
 The **official evaluation metric** for the task is a modified version of the **micro-F1** that allows for partial matchings according to the hierarchy of techniques defined in `hierarchy-rewards.txt`. 
-The leaf nodes in the hierarchy are the [22 techniques](https://propaganda.math.unipd.it/neurips2023competition/definitions22.html), while internal nodes are grouping of them, according to their characteristics. For instance, "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism", since they all have the goal of distracting from the main thesis of the opponent. If an output label is Distraction while the gold label is "Red Herring", a partial reward is given. The supercategories are described [here](https://knowledge4policy.ec.europa.eu/sites/default/files/JRC132862_technical_report_annotation_guidelines_final_with_affiliations_1.pdf).    
+The leaf nodes in the hierarchy are the [22 techniques](https://propaganda.math.unipd.it/semeval2024task4/definitions22.html), while internal nodes are grouping of them, according to their characteristics. For instance, "Distraction" is a supercategory for the techniques "Straw man", "Red Herring" and "Whataboutism", since they all have the goal of distracting from the main thesis of the opponent. If an output label is Distraction while the gold label is "Red Herring", a partial reward is given. The supercategories are described [here](https://knowledge4policy.ec.europa.eu/sites/default/files/JRC132862_technical_report_annotation_guidelines_final_with_affiliations_1.pdf).    
 The modified micro_F1 is computed as follows: 
 
 $$ Prec=\frac{tpw}{tp+fp} $$
